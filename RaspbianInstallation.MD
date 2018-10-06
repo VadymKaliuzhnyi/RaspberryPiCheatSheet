@@ -36,4 +36,4 @@
 
 After reboot in Pi terminal or thru SSH (login: **pi**, default password: **raspberry**):
 
-**sudo apt-get update | sudo apt-get upgrade -y | sudo apt-get distr-upgrade -y | sudo reboot now**
+**sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get update && sudo apt-get autoclean && sudo apt-get clean && sudo apt-get autoremove && sudo reboot now**
