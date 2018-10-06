@@ -1,17 +1,39 @@
-1. Download Raspbian image:
+#### 1. Connect MicroSD card to PC (thru USB reader or so)
 
-https://www.raspberrypi.org/downloads/raspbian/
+#### 2. Download Raspbian image:
+[https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
-2. Connect Pi to PC
+#### 3. Flashing ISO to MicroSD:
+3.1 LINUX:
+* Find out device is your MicroSD: sudo fdisk -l (should be something lime /dev/sdc)
 
-3. Find out device is your MicroSD:
+* Go to folder with Pi image to unzip and flash the image, open terminal and run: 
 
-sudo fdisk -l (should be something lime /dev/sdc)
+  unzip -p **2017-09-07-raspbian-stretch.zip** | sudo dd bs=4M if=**2017-09-07-raspbian-stretch.img** of=**/dev/sdc** status=progress conv=fsync
 
-4. Go to folder with Pi image to Unzip and flash the image:
+3.2 Windows:
 
-unzip -p 2017-09-07-raspbian-stretch.zip | sudo dd bs=4M if=2017-09-07-raspbian-stretch.img of=/dev/sdc status=progress conv=fsync
+* Donwload MicroSD card formatter:
+[https://www.sdcard.org/downloads/formatter_4/index.html](https://www.sdcard.org/downloads/formatter_4/index.html)
 
-5. Insert MicroSD to Pi and plug-in power.
+* Format MicroSD Card via card formatter
 
-Done!
+* Download Etcher:
+[https://etcher.io/](https://etcher.io/)
+
+* In Etcher - flash downloaded ISO to MicroSD card 
+
+#### 4. Insert MicroSD to Pi and plug-in power.
+
+#### 5. After GUI will start in raspberry GUI configuration tool:
+
+* enable SSH interface
+* enable overclock
+* set language and timezone
+* disable GUI login, enable CLI login, disable autologin
+
+#### 6. Update your PI:
+
+After reboot in Pi terminal or thru SSH (login: **pi**, default password: **raspberry**):
+
+**sudo apt-get update | sudo apt-get upgrade -y | sudo apt-get distr-upgrade -y | sudo reboot now**
